@@ -7,7 +7,7 @@ from listen.search import (
 	apple_music_search
 )
 
-from listen.util import formatter
+from listen.utils import formatter
 
 try:
 	keyword = sys.argv[1]
