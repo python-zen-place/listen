@@ -1,6 +1,6 @@
 # listen
 
-![license:MIT](https://img.shields.io/github/license/python-zen-place/listen)![Python Version: 3.6+](https://img.shields.io/badge/python-3.6%2B-blue)
+![license:MIT](https://img.shields.io/github/license/python-zen-place/listen) ![Python Version: 3.6+](https://img.shields.io/badge/python-3.6%2B-blue)
 
 >  命令行音乐源聚合搜索工具
 
@@ -44,9 +44,6 @@ import listen
 data = listen.search.netease_music_search('我也喜欢你的女朋友')
 
 ```
-
-
-
 
 ## TODO
 
