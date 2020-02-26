@@ -4,21 +4,23 @@ import requests
 		
 def netease_music_search(keyword):
 	url = f'https://music.jeeas.cn/v1/search?s={keyword}&from=music'
-	songs = requests.get(url).json()['result']['songs']
-	return [(song['name'], song['ar'][0]['name']) for song in songs if song['name'] == keyword]
-
+	try:
+		songs = requests.get(url).json()['result']['songs']
+		return [(song['name'], song['ar'][0]['name']) for song in songs if keyword in song['name']]
+	except KeyError as e:
+		return []
 def tencent_music_search(keyword):
 	url = f'https://c.y.qq.com/soso/fcgi-bin/client_search_cp?w={keyword}'
 	try:
 		songs = json.loads(requests.get(url).text.strip('callback')[1:-1])['data']['song']['list']
-		return [(song['songname'], song['singer'][0]['name']) for song in songs if song['songname'] == keyword]
-	except:
+		return [(song['songname'], song['singer'][0]['name']) for song in songs if keyword in song['songname']]
+	except KeyError as e:
 		return []
 
 def kugou_music_search(keyword):
 	url = f'https://songsearch.kugou.com/song_search_v2?keyword={keyword}'
 	songs = requests.get(url).json()['data']['lists']
-	return [(song['SongName'], song['SingerName']) for song in songs if song['SongName'] == keyword]
+	return [(song['SongName'], song['SingerName']) for song in songs if keyword in song['SongName']]
 
 def apple_music_search(keyword):
 	url = f'http://tools.applemusic.com/zh-cn/search?country=cn&media=songs&utf8=%E2%9C%93&term={keyword}&country=cn&media=songs&cache='
@@ -33,4 +35,4 @@ def apple_music_search(keyword):
 		'X-Requested-With': 'XMLHttpRequest'
 	}
 	songs = json.loads('{"items":'+re.findall('append\(itemsTemplate\((.*)', requests.get(url, headers=headers).text)[0][7:-3])['items']
-	return [(song['name'], song['artistOrCuratorName']) for song in songs if song['name'] == keyword]
+	return [(song['name'], song['artistOrCuratorName']) for song in songs if keyword in song['name']]
