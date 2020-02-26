@@ -9,4 +9,5 @@ setup(
         install_requires=[
 			'requests>=2.0.0'
     	],
+    	packages=['listen', 'listen.search', 'listen.utils']
 )
