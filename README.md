@@ -13,7 +13,8 @@
 - [x] QQ音乐
 - [x] 酷狗音乐
 - [x] Apple Music
-- [ ] 千千音乐
+- [x] 千千音乐
+- [ ] 豆瓣FM
 
 ## 安装 
 > Windows需确保拥有管理员权限
@@ -36,6 +37,8 @@
 
 `python -m listen 我也喜欢你的女朋友`
 
+> 默认模糊搜索，提供参数切换为精确搜索；支持添加艺术家名参数
+
 作为模块使用
 
 ```python
@@ -48,7 +51,7 @@ data = listen.search.netease_music_search('我也喜欢你的女朋友')
 ## TODO
 
 - [x] 编写setup.py
-- [ ] 千千音乐搜索源
+- [x] 千千音乐搜索源
 - [ ] 提供歌曲访问链接
 
 ## 感谢

@@ -4,7 +4,8 @@ from listen.search import (
 	netease_music_search,
 	tencent_music_search,
 	kugou_music_search,
-	apple_music_search
+	apple_music_search,
+	qianqian_music_search,
 )
 
 from listen.utils import formatter, filter
@@ -25,13 +26,14 @@ try:
 		if opt in ('-h', '--help'):
 			print(help_content)
 			sys.exit()
-
+		print(sys.getrefcount(value))
 	keyword = args[0]
 	results = {
 		'网易云音乐': netease_music_search(keyword),
 		'QQ音乐': tencent_music_search(keyword),
 		'酷狗音乐':  kugou_music_search(keyword),
 		'Apple Music': apple_music_search(keyword),
+		'千千音乐': qianqian_music_search(keyword),
 	}
 
 	for opt, value in opts:
