@@ -27,7 +27,8 @@ try:
 			print(help_content)
 			sys.exit()
 		print(sys.getrefcount(value))
-	keyword = args[0]
+	keyword = ' '.join(args)
+	print(keyword)
 	results = {
 		'网易云音乐': netease_music_search(keyword),
 		'QQ音乐': tencent_music_search(keyword),
